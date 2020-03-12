@@ -1,66 +1,65 @@
 "use strict";
 
-// Declarar variáveis em ES6+
+// Operações com Array em ES6+
+var array = [1, 3, 4, 5, 8, 9];
+
+// Percorre todos os itens do vetor eexcecuta em determinada ação para ele com retorno
+var novoArray = array.map(function (item, index) {
+  return item * 2;
+});
+
+console.log('arraymap: '+ novoArray);
+
+// Reduce: Consumir tod oo vetor e transformar em uma única informação
+const soma = array.reduce(function (total, proximoValor){
+    return total + proximoValor;
+});
+
+console.log('arrayReduce: '+ soma);
 
 /*
-    const: cria uma variável do tipo constante.
+    Execução:
+    total: 0 proximo: 1
+    total: 1 proximo: 3
+    total: 4 proximo: 4
 
-    Só poderá ser alterado o valor definido inicialmente atraveś de mutações
-    (em objetos ou arrays);
 */
-var nomeVariavel = "João"; // Objeto
 
-var usuario = {
-  nome: 'Jesus',
-  idade: 26
-}; //nomeVariavel = "Maria";
-// Permite a mutação do objeto  mas não sua substituição
+// Filter: filtrar somente os itens que queremos
+const filterPares = array.filter(function (item){
+    /*if(item % 2 == 0){
+        return true;
+    }else{
+        return false;
+    }*/
 
-usuario.nome = 'Maria'; // usuario = {nome: 'Maria}, idade: 26};
+    return item % 2 === 0;
+});
 
-console.log(usuario.nome);
-var meuVetor = [1, 2, 3, 4, 5]; // meuvetor = [90, 93];   // Vai dar erro
+console.log('filterPares:' + filterPares);
 
-meuVetor[0] = 90;
-meuVetor[2] = 93;
-console.log(usuario);
-console.log(meuVetor); // Variável do tipo let
+const usuarios = [
+    { nome: 'Usuário 1', idade: 10},
+    { nome: 'Usuário 2', idade: 15},
+    { nome: 'Usuário 3', idade: 18},
+];
 
-var valor = 3;
-var nome = 'claudia Let';
-var altura = 1.86;
-var contemValor = true; // Escopo A
+const novosUsuarios = usuarios.filter(function usuario(){
+    return usuarios.idade >=15;
+})
 
-if (true) {// Escopo B
+
+//Find
+const find = usuarios.find(function (item){
+    return item.nome === 'Usuário 1';
+});
+
+if(find){
+    console.log(find);
 }
 
-function somar() {// Escopo C
-}
 
-for (var i = 0; i < 5; i++) {
-  // Escopo D
-  var _nome = 'Maria';
-} //Escopo A
-
-
-var exibirMensagem = function exibirMensagem() {
-  // Hoisting
-  console.log(mensagem);
-  var mensagem = 'Minha mensagem';
-  console.log(mensagem);
-};
-
-exibirMensagem();
-
-function exibirMensagem2() {
-  if (true) {
-    var _escopoFuncao = 'Teste';
-    var _escopoBloco = 'Teste 2';
-    console.log(_escopoBloco);
-  }
-
-  console.log(escopoFuncao);
-  console.log(escopoBloco);
-}
-
-exibirMensagem2();
+//forEach
+usuarios.forEach(function (item, index) {
+   console.log(item); 
+});
