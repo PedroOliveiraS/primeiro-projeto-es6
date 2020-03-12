@@ -1,15 +1,40 @@
 "use strict";
 
-function somar(valorA) {
-  var valorB = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 10;
-  console.log(valorA + valorB);
+var usuario = {
+  nome: 'Jordan',
+  idade: 24,
+  endereco: {
+    cidade: 'Ituiutaba',
+    estado: 'MG'
+  }
+};
+/*
+console.log(usuario);
+
+let nome = usuario.nome;
+let idade = usuario.idade;
+let cidade = usuario.endereco.cidade;
+
+console.log(nome, idade, cidade);
+*/
+
+var nome = usuario.nome,
+    _usuario$idade = usuario.idade,
+    idade = _usuario$idade === void 0 ? 0 : _usuario$idade,
+    cidade = usuario.endereco.cidade;
+console.log(nome, idade, cidade);
+/*
+function mostrarNome(nome){
+    console.log(nome);
 }
 
-somar(10, 11);
+mostrarNome(usuario.nome);
+*/
 
-var soma = function soma(valorA) {
-  var valorB = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 10;
-  return valorA + valorB;
-};
+function mostrarNome(_ref) {
+  var nome = _ref.nome,
+      idade = _ref.idade;
+  console.log(nome, idade);
+}
 
-console.log(soma(5));
+mostrarNome(usuario);

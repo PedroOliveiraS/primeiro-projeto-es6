@@ -1,9 +1,35 @@
-function somar (valorA, valorB = 10){
-    console.log(valorA + valorB);
+const usuario = {
+    nome: 'Jordan',
+    idade: 24,
+    endereco: {
+        cidade: 'Ituiutaba',
+        estado: 'MG'
+    }
+};
+
+/*
+console.log(usuario);
+
+let nome = usuario.nome;
+let idade = usuario.idade;
+let cidade = usuario.endereco.cidade;
+
+console.log(nome, idade, cidade);
+*/
+
+const{ nome, idade=0, endereco: {cidade}} = usuario;
+console.log(nome, idade, cidade);
+
+/*
+function mostrarNome(nome){
+    console.log(nome);
 }
 
-somar(10, 11);
+mostrarNome(usuario.nome);
+*/
 
-const soma = (valorA, valorB = 10) => valorA + valorB;
+function mostrarNome({nome, idade}){
+    console.log(nome, idade);
+}
 
-console.log(soma(5));
+mostrarNome(usuario);
