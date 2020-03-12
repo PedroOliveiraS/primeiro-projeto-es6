@@ -1,42 +1,73 @@
-class List{
-    constructor(){
-        this.data = [];
-    }
+// Declarar variáveis em ES6+
+/*
+    const: cria uma variável do tipo constante.
 
-    add(value){
-        this.data.push(value);
-        this.print();
-    }
+    Só poderá ser alterado o valor definido inicialmente atraveś de mutações
+    (em objetos ou arrays);
+*/
 
-    remove(){
-        this.data.pop();
-        this.print();
-    }
+const nomeVariavel = "João";
 
-    print(){
-        console.log(this.data);
-    }
+// Objeto
+const usuario = {nome: 'Jesus', idade: 26};
+//nomeVariavel = "Maria";
+
+// Permite a mutação do objeto  mas não sua substituição
+usuario.nome = 'Maria';
+// usuario = {nome: 'Maria}, idade: 26};
+console.log(usuario.nome);
+
+const meuVetor = [1, 2, 3, 4, 5];
+// meuvetor = [90, 93];   // Vai dar erro
+meuVetor[0] = 90;
+meuVetor[2] = 93;
+
+console.log(usuario);
+console.log(meuVetor);
+
+
+// Variável do tipo let
+let valor = 3;
+let nome = 'claudia Let';
+let altura = 1.86;
+let contemValor = true;
+
+
+// Escopo A
+
+if (true) {
+    // Escopo B
 }
 
-class TodoList extends List{
-    print(){
-        console.log("Imprimindo todoList");
-        super.print();
+function somar(){
+    // Escopo C
+}
+
+for(var i = 0; i<5; i++){
+    // Escopo D
+    let nome = 'Maria';
+}
+
+//Escopo A
+
+
+var exibirMensagem = function(){
+    // Hoisting
+    console.log(mensagem);
+    var mensagem = 'Minha mensagem';
+    console.log(mensagem);
+}
+
+exibirMensagem();
+
+function exibirMensagem2(){
+    if(true){
+        let escopoFuncao = 'Teste';
+        let escopoBloco = 'Teste 2';
+        console.log(escopoBloco);
     }
+    console.log(escopoFuncao);
+    console.log(escopoBloco)
 }
 
-class Matemática{
-    static soma(valueA, valueB){
-        return valueA + valueB;
-    }
-}
-
-const minhaLista = new TodoList();
-console.log(Matemática.soma(5,7));
-document.getElementById('addTodo').onclick = function(){
-    minhaLista.add('Qualquer coisa');
-}
-
-document.getElementById('popTodo').onclick = function(){
-    minhaLista.remove();
-}
+exibirMensagem2();
