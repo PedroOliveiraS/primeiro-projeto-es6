@@ -63,7 +63,7 @@ exibirMensagem();
 function exibirMensagem2(){
     if(true){
         let escopoFuncao = 'Teste';
-        let escopoBloco = 'Teste 2';
+        let escopoBloco = 'Teste 2a';
         console.log(escopoBloco);
     }
     console.log(escopoFuncao);
