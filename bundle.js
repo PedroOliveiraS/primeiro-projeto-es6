@@ -1,65 +1,39 @@
 "use strict";
 
-// Operações com Array em ES6+
+// Arrows Functions
 var array = [1, 3, 4, 5, 8, 9];
-
-// Percorre todos os itens do vetor eexcecuta em determinada ação para ele com retorno
-var novoArray = array.map(function (item, index) {
+var novoArray = array.map(function (item) {
   return item * 2;
 });
-
-console.log('arraymap: '+ novoArray);
-
-// Reduce: Consumir tod oo vetor e transformar em uma única informação
-const soma = array.reduce(function (total, proximoValor){
-    return total + proximoValor;
-});
-
-console.log('arrayReduce: '+ soma);
-
 /*
-    Execução:
-    total: 0 proximo: 1
-    total: 1 proximo: 3
-    total: 4 proximo: 4
+
+    1. Remove a keyword function
+    2. Colocar a flecha => entre o parentese e a chave
+    3. A função recebe parâmetro?
+        Sim
+            3.1 Remove o parentese por volta do parametro
+            .2 A função retorna apenas uma informação? (1 linha retorno)
+
 
 */
+//Reduce
 
-// Filter: filtrar somente os itens que queremos
-const filterPares = array.filter(function (item){
-    /*if(item % 2 == 0){
-        return true;
-    }else{
-        return false;
-    }*/
-
-    return item % 2 === 0;
+var soma = array.reduce(function (total, proximoValor) {
+  return total + proximoValor;
 });
 
-console.log('filterPares:' + filterPares);
+var teste = function teste() {
+  console.log('Oi'); // NÃO É RECOMENDADO
+};
 
-const usuarios = [
-    { nome: 'Usuário 1', idade: 10},
-    { nome: 'Usuário 2', idade: 15},
-    { nome: 'Usuário 3', idade: 18},
-];
-
-const novosUsuarios = usuarios.filter(function usuario(){
-    return usuarios.idade >=15;
-})
+var teste2 = function teste2() {
+  return [1, 2, 3];
+}; // RETORNA UM ARRAY
 
 
-//Find
-const find = usuarios.find(function (item){
-    return item.nome === 'Usuário 1';
-});
-
-if(find){
-    console.log(find);
-}
-
-
-//forEach
-usuarios.forEach(function (item, index) {
-   console.log(item); 
-});
+var teste3 = function teste3() {
+  return {
+    nome: 'Joao das Neves',
+    idade: 10
+  };
+};
